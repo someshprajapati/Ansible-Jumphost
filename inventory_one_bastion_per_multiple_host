@@ -1,0 +1,28 @@
+[web-server]
+
+192.168.20.100
+
+
+[web-server:vars]
+
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q web-bastion-hostname"'
+
+
+[app-server]
+
+192.168.20.102
+
+
+[app-server:vars]
+
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q app-bastion-hostname"'
+
+
+[db-server]
+
+192.168.20.105
+
+
+[db-server:vars]
+
+ansible_ssh_common_args='-o ProxyCommand="ssh -W %h:%p -q db-bastion-hostname"'
